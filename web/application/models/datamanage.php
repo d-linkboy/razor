@@ -48,7 +48,16 @@ class Datamanage extends CI_Model
      */
     function createurl ()
     {
-        $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+        $url = "";
+        if ("on" != $_SERVER['HTTPS'])
+        {
+           $url = "http://";
+        }
+        else
+        {
+           $url = "https://";
+        }
+        $url .= $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
         $res = explode("/index", $url);
         $newurl = $res['0'];
         return $newurl;
