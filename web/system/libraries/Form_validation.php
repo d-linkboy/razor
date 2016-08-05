@@ -1118,7 +1118,7 @@ class CI_Form_validation {
       function isURL($url = NULL)
        {
          if($url==NULL) return false;
-         $regex = "/\b(?:http:\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i";
+         $regex = "/\b(?:http(s?):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i";
          if(preg_match($regex, $url)==true) return true;
          else return false;
       }
