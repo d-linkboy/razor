@@ -49,13 +49,13 @@ class Datamanage extends CI_Model
     function createurl ()
     {
         $url = "";
-        if ("on" != $_SERVER['HTTPS'])
+        if (isset($_SERVER["HTTPS"]) && "on" == strtolower($_SERVER["HTTPS"]))
         {
-           $url = "http://";
+           $url = "https://";
         }
         else
         {
-           $url = "https://";
+           $url = "http://";
         }
         $url .= $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
         $res = explode("/index", $url);
